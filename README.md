@@ -12,5 +12,5 @@ Big thanks to other team members: TODO add participants
 # Running tests
 Run tests with ```shell npx hardhat test```
 
-# This contract is currently live on polygon mumbai testnet
+This contract is currently live on polygon mumbai testnet
 https://mumbai.polygonscan.com/address/0xA01E57e18C5efb0b3f8e4643846956F550992846

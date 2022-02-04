@@ -4,8 +4,6 @@ This project demonstrates how file origin can be validate using blockchain
 
 The code was created for winter EthGlobal 2022 hackathon.
 
-Big thanks to other team members: TODO add participants
-
 # Deployment
 2) run deployment script: ```console npx hardhat run --network localhost scripts/deploy.js```
 

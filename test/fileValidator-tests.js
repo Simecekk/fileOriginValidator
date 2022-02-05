@@ -4,22 +4,22 @@ const { ethers } = require("hardhat");
 describe("Greeter", function () {
 
   beforeEach(async () => {
-    const FileOriginValidator = await ethers.getContractFactory("FileOriginValidator");
-    fileOriginValidator = await FileOriginValidator.deploy();
+    const FileOriginVerifier = await ethers.getContractFactory("FileOriginVerifier");
+    fileOriginVerifier = await FileOriginVerifier.deploy();
     [addr0, addr1, addr2, addr3] = await ethers.getSigners();
   });
 
   it("Should Add file correct", async () => {
-    fileOriginValidator.connect(addr0).addFile(
+    fileOriginVerifier.connect(addr0).addFile(
       ethers.utils.formatBytes32String('file_hash_1')
     );
   });
 
   it("Should failed on duplicity file", async () => {
     let fileHash = ethers.utils.formatBytes32String('file_hash_1');
-    fileOriginValidator.connect(addr0).addFile(fileHash);
+    fileOriginVerifier.connect(addr0).addFile(fileHash);
     await expect(
-      fileOriginValidator.connect(addr1).addFile(fileHash)
+      fileOriginVerifier.connect(addr1).addFile(fileHash)
     ).to.be.revertedWith(
       'File already exists'
     );
@@ -27,25 +27,25 @@ describe("Greeter", function () {
 
   it("Should return correct owner of file", async () => {
     let fileHash = ethers.utils.formatBytes32String('file_hash_1');
-    fileOriginValidator.connect(addr0).addFile(fileHash);
+    fileOriginVerifier.connect(addr0).addFile(fileHash);
     expect(
-      await fileOriginValidator.getFileOrigin(fileHash)
+      await fileOriginVerifier.getFileOrigin(fileHash)
     ).to.be.equal(addr0.address);
   });
 
   it("Should validate owner correctly", async () => {
     let fileHash = ethers.utils.formatBytes32String('file_hash_1');
-    fileOriginValidator.connect(addr0).addFile(fileHash);
+    fileOriginVerifier.connect(addr0).addFile(fileHash);
     expect(
-      await fileOriginValidator.validateFileOrigin(addr0.address, fileHash)
+      await fileOriginVerifier.verifyFileOrigin(addr0.address, fileHash)
     ).to.be.equal(true);
   });
 
   it("Should validate owner failed", async () => {
     let fileHash = ethers.utils.formatBytes32String('file_hash_1');
-    fileOriginValidator.connect(addr0).addFile(fileHash);
+    fileOriginVerifier.connect(addr0).addFile(fileHash);
     expect(
-      await fileOriginValidator.validateFileOrigin(addr1.address, fileHash)
+      await fileOriginVerifier.verifyFileOrigin(addr1.address, fileHash)
     ).to.be.equal(false);
   });
 

@@ -1,4 +1,4 @@
-# fileOriginValidator
+# fileOriginVerifier
 
 This project demonstrates how file origin can be validate using blockchain
 
@@ -11,4 +11,4 @@ The code was created for winter EthGlobal 2022 hackathon.
 Run tests with ```shell npx hardhat test```
 
 # Live On
-polygon mumbai -> https://mumbai.polygonscan.com/address/0x45F0655e31002d32b58d6f9e985eE3ED01B769C1
+polygon mumbai -> https://mumbai.polygonscan.com/address/0xAa9C2d018CB62f8Ba3e5041cE095f86fA325bA8c

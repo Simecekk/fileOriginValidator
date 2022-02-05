@@ -1,8 +1,8 @@
 const hre = require("hardhat");
 
 async function main() {
-  const FileOriginValidator = await hre.ethers.getContractFactory("FileOriginValidator");
-  const fileValidator = await FileOriginValidator.deploy();
+  const FileOriginVerifier = await hre.ethers.getContractFactory("FileOriginVerifier");
+  const fileValidator = await FileOriginVerifier.deploy();
   await fileValidator.deployed();
   console.log("fileValidator deployed to:", fileValidator.address);
 }

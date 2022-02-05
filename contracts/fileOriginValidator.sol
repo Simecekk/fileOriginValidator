@@ -7,7 +7,7 @@ contract FileOriginValidator {
 
     struct FileMetadata {
       address origin;
-      uint256 createdAt;
+      uint256 blockNumber;
       bool exists;
     }
 
@@ -18,7 +18,7 @@ contract FileOriginValidator {
 
         hashToFileMetadata[_fileHash] = FileMetadata(
           msg.sender,
-          block.timestamp,
+          block.number,
           true
         );
 

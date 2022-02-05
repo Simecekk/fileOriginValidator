@@ -11,4 +11,4 @@ The code was created for winter EthGlobal 2022 hackathon.
 Run tests with ```shell npx hardhat test```
 
 # Live On
-polygon mumbai -> https://mumbai.polygonscan.com/address/0xA01E57e18C5efb0b3f8e4643846956F550992846
+polygon mumbai -> https://mumbai.polygonscan.com/address/0x45F0655e31002d32b58d6f9e985eE3ED01B769C1
